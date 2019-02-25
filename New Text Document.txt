@@ -1,0 +1,21 @@
+	var target = new GlideRecord('sys_user');
+
+target.addQuery('active',false);
+target.query();
+gs.info(target.getRowCount());
+
+var access=new Array;
+
+var arr="";
+ // Issue the query to the database to get all records 
+while (target.next()) { 
+  // add code here to process the incident record 
+
+//target.active=false;
+//target.update();
+arr=arr+","+target.name;
+access.push(target.getValue("name"));
+
+}
+
+gs.info(arr);
